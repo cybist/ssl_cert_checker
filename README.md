@@ -1,5 +1,5 @@
 # ssl_cert_checker
-各ドメインのSSL証明書の有効期限を一元管理します。
+各ドメインのSSL証明書の有効期限を一元管理します。  
 日次バッチで、設定ファイルに登録されたドメインリストを元にopensslで有効期限を取得し、この情報がストアされたlevelDBを元にWEBアプリで一覧表示をおこないます。
 
 ## 確認済動作要件
@@ -97,9 +97,12 @@ sudo nginx -t
 sudo service nginx restart
 
 crontab
+    #毎日04:05に更新
     5 4 * * * cd /home/you/projects/ssl_cert_checker/batch/ && /usr/local/bin/python3.7 ssl_check.py & > /dev/null 2>&1
 ```
 
-ブラウザで以下にアクセスして一覧画面が表示されれば成功です。
+ブラウザで以下にアクセスして、一覧画面が表示されれば成功です。
+
 https://ssl-check.yourdomain.xyz/
+
 <img alt="ssl_cert_checker" src="https://camo.qiitausercontent.com/97e40ff815d3ecb107f9bd5111dcdb99aab6cd75/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3238323333322f38613733303866302d623765612d656133372d353763362d3733333235643633396130322e706e67" />
