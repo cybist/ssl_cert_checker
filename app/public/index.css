@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+body {
+  font-family:"メイリオ","Meiryo","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic","Lucida Grande","Lucida Sans Unicode",verdana,Sans-Serif;
+  padding:1em;
+  margin:0 auto;
+  background-color:#fff;
+}
+body.loading {
+  cursor:wait;
+  background-color:#f6f6f6;
+  color:#999;
+}
+body.loading th {
+    background-color:#e6e6e6;
+}
+h1 {
+  font-size:1.2em;
+  font-weight:normal;
+  margin:10px auto;
+}
+h1 span {
+  font-size:0.9em;
+  color:gray;
+  margin-left:1em;
+}
+h1 span:before {
+  content:'(';
+}
+h1 span:after {
+  content:')';
+}
+table {
+  border-collapse:collapse;
+  width:100%;
+  max-width:1200px;
+}
+table th, table td {
+  border:1px solid gray;
+  padding:2px 5px;
+}
+table th {
+  font-weight:normal;
+  border-bottom:3px double gray;
+  background-color:#f9f9e9;
+}
+table .ok {
+  color:green;
+}
+table .note {
+  color:orange;
+}
+table .ng {
+  color:red;
+}
+table .error {
+  color:gray;
+}
+table .odd {
+  background-color:#f6f6f6;
+}

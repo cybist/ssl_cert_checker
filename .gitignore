@@ -1,0 +1,9 @@
+/api/*
+!/api/index.php
+/batch/*
+!/batch/ssl_check.py
+/logs/*
+!/logs/.gitkeep
+/results/
+/app/dist/
+node_modules/

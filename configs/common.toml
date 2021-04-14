@@ -1,0 +1,204 @@
+APP_DIR = "/home/hirata/projects/ssl-check/"
+RESULT_DB = "results"
+CHECK_CMD = "openssl s_client -connect {fqdn}:443 -servername {fqdn} </dev/null 2>/dev/null | openssl x509 -text | grep \"Not After\""
+STATUS_OK = 1
+STATUS_NOTE = 2
+STATUS_NOTE_REPORT = 3
+STATUS_NG = 4
+STATUS_ERROR = 5
+
+CW_API_PATH = "https://api.chatwork.com/v2/"
+CW_API_TOKEN = "1eb5be9fa91e7f55281ceb7d09c68e2e"
+CW_ROOM_ID = "14745465"
+
+[DOMAIN_LIST]
+"soulproj.com" = [
+    "soulproj.com",
+    "yos.soulproj.com",
+    "esa.soulproj.com",
+    "bbs.soulproj.com",
+    "tip1.soulproj.com",
+    "pet.soulproj.com",
+    "niko.soulproj.com",
+    "fanatic.soulproj.com",
+    "pola-ris.soulproj.com",
+    "garden.soulproj.com",
+    "mb.soulproj.com",
+    "expo.soulproj.com",
+    "moodle.soulproj.com",
+    "fuji.soulproj.com",
+    "s_fuji.soulproj.com",
+    "sagasa.soulproj.com",
+]
+"ketoha.com" = [
+    "ketoha.com",
+    "autowave.ketoha.com",
+    "happybell.ketoha.com",
+    "demo.ketoha.com",
+    "tsunagu.ketoha.com",
+    "line.ketoha.com",
+    "line-dev.ketoha.com",
+    "nec.ketoha.com",
+    "demonec.ketoha.com",
+    "salon.ketoha.com",
+    "test.ketoha.com",
+    "wp_test.ketoha.com",
+    "webrtc.ketoha.com",
+    "master.ketoha.com",
+    "nc-labo.ketoha.com",
+    "nc-koba.ketoha.com",
+    "rethink.ketoha.com",
+]
+"ketoha.co.jp" = [
+    "ketoha.co.jp",
+]
+"ketoha.xyz" = [
+    "ketoha.xyz",
+    "socket.ketoha.xyz",
+    "pocket.ketoha.xyz",
+    "wss.ketoha.xyz",
+    "support.ketoha.xyz",
+    "tensor.ketoha.xyz",
+    "okaere.ketoha.xyz",
+    "ssl-check.ketoha.xyz",
+]
+"divingbeetle.info" = [
+    "divingbeetle.info",
+    "esa.divingbeetle.info",
+    "yos.divingbeetle.info",
+    "tip2.divingbeetle.info",
+]
+"auto-wave.co.jp" = [
+    "auto-wave.co.jp",
+]
+"fujiyakuhin.co.jp" = [
+    "www.fujiyakuhin.co.jp",
+]
+"bk-sagasa-nt.com" = [
+    "bk-sagasa-nt.com",
+]
+"sekai-marketing.com" = [
+    "master.sekai-marketing.com",
+]
+"nc-labo.jp" = [
+    "nc-labo.jp",
+]
+"koenokyoikusha.co.jp" = [
+    "www.koenokyoikusha.co.jp",
+]
+"butterfly-garden.jp" = [
+    "butterfly-garden.jp",
+]
+"tsukurie.com" = [
+    "tsukurie.com",
+]
+"salon-de-one.com" = [
+    "salon-de-one.com",
+    "happybell.salon-de-one.com",
+]
+"happybell.co.jp" = [
+    "happybell.co.jp",
+]
+"rethink-creator.jp" = [
+    "rethink-creator.jp",
+]
+"w-york.com" = [
+    "w-york.com",
+    "horizon.w-york.com",
+]
+"stgmove.com" = [
+    "stgmove.com",
+    "horizon.stgmove.com",
+]
+"wibs-stats.com" = [
+    "wibs-stats.com",
+]
+"stgtkymove.com" = [
+    "stgtkymove.com",
+    "horizon.stgtkymove.com",
+    "client.stgtkymove.com",
+    "branch.stgtkymove.com",
+    "tools.stgtkymove.com",
+]
+"wibs-khplc-dev.com" = [
+    "wibs-khplc-dev.com",
+    "api.wibs-khplc-dev.com",
+    "client.wibs-khplc-dev.com",
+    "branch.wibs-khplc-dev.com",
+    "agent.wibs-khplc-dev.com",
+    "tools.wibs-khplc-dev.com",
+]
+"wibs-khplc-stg.com" = [
+    "wibs-khplc-stg.com",
+    "api.wibs-khplc-stg.com",
+    "client.wibs-khplc-stg.com",
+    "branch.wibs-khplc-stg.com",
+    "agent.wibs-khplc-stg.com",
+    "tools.wibs-khplc-stg.com",
+]
+"wibs-ph-stg.com" = [
+    "wibs-ph-stg.com",
+    "api.wibs-ph-stg.com",
+    "client.wibs-ph-stg.com",
+    "branch.wibs-ph-stg.com",
+    "agent.wibs-ph-stg.com",
+    "tools.wibs-ph-stg.com",
+]
+"wibs-khplc-agt.com" = [
+    "wibs-khplc-agt.com",
+    "api.wibs-khplc-agt.com",
+    "client.wibs-khplc-agt.com",
+    "branch.wibs-khplc-agt.com",
+    "agent.wibs-khplc-agt.com",
+    "tools.wibs-khplc-agt.com",
+]
+"wibs-est-stg.com" = [
+    "wibs-est-stg.com",
+    "api.wibs-est-stg.com",
+    "client.wibs-est-stg.com",
+    "branch.wibs-est-stg.com",
+    "tools.wibs-est-stg.com",
+]
+"wibs-khplc.com" = [
+    "wibs-khplc.com",
+    "api.wibs-khplc.com",
+    "client.wibs-khplc.com",
+    "branch.wibs-khplc.com",
+    "agent.wibs-khplc.com",
+    "tools.wibs-khplc.com",
+]
+"wibs-ph.com" = [
+    "wibs-ph.com",
+    "api.wibs-ph.com",
+    "client.wibs-ph.com",
+    "branch.wibs-ph.com",
+    "tools.wibs-ph.com",
+]
+"dopay-em.com" = [
+    "dopay-em.com",
+    "api.dopay-em.com",
+    "client.dopay-em.com",
+    "branch.dopay-em.com",
+    "agent.dopay-em.com",
+    "tools.dopay-em.com",
+]
+"dopay-vc.com" = [
+    "dopay-vc.com",
+    "api.dopay-vc.com",
+    "client.dopay-vc.com",
+    "branch.dopay-vc.com",
+    "tools.dopay-vc.com",
+]
+"wibs-est.com" = [
+    "wibs-est.com",
+    "api.wibs-est.com",
+    "client.wibs-est.com",
+    "branch.wibs-est.com",
+    "tools.wibs-est.com",
+]
+"zeegtown.com" = [
+    "shop.zeegtown.com",
+]
+"towntownmall.com" = [
+    "shop.towntownmall.com",
+]
